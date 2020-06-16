@@ -1,22 +1,36 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Col, Row, Container } from '../Grid';
 
-function Nav() {
+function NavTabs() {
+  const location = useLocation();
   return (
     <Container fluid>
       <Row>
         <Col size='md-2'></Col>
         <Col size='md-6'>
-          <ul class='nav'>
-            <li class='nav-item'>
-              <a class='nav-link active' href='#'>
+          <ul className='nav'>
+            <li className='nav-item'>
+              <Link
+                to='/'
+                className={
+                  location.pathname === '/' ? 'nav-link active' : 'nav-link'
+                }
+              >
                 Search
-              </a>
+              </Link>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+            <li className='nav-item'>
+              <Link
+                to='/WishList'
+                className={
+                  location.pathname === '/WishList'
+                    ? 'nav-link active'
+                    : 'nav-link'
+                }
+              >
                 Wish List
-              </a>
+              </Link>
             </li>
           </ul>
         </Col>
@@ -25,4 +39,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavTabs;

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Jumbotron from '../components/Jumbotron';
-import SaveBtn from '../components/SaveBtn';
 import API from '../utils/API';
 import { Col, Row, Container } from '../components/Grid';
-import { List, ListItem } from '../components/List';
 import { Input, TextArea, FormBtn } from '../components/Form';
 
 function Search() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([]);
+  const [found, setBooks] = useState([]);
   const [formObject, setFormObject] = useState({});
 
   // Load all books and store them with setBooks

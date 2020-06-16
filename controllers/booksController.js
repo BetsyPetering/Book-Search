@@ -4,15 +4,20 @@ const axios = require('axios');
 // Defining methods for the booksController
 module.exports = {
   findAll: function (req, res) {
-    axios.get(
-      'https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey'
-    );
-    // db.Book
-    //   .find(req.query)
-    //   .sort({ date: -1 })
-    //   .then(dbModel => res.json(dbModel))
-    //   .catch(err => res.status(422).json(err));
+    axios({
+      method: 'get',
+      url: `https://www.googleapis.com/books/v1/volumes?q=:flowers+inauthorkeyes&key=${process.env.googleBooksKey}`,
+    })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   },
+
+  // db.Book
+  //   .find(req.query)
+  //   .sort({ date: -1 })
+  //   .then(dbModel => res.json(dbModel))
+  //   .catch(err => res.status(422).json(err));
+
   findById: function (req, res) {
     db.Book.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
