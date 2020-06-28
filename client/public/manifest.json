@@ -1,6 +1,6 @@
 {
   "short_name": "Google Books",
-  "name": "Google Books Search and Save",
+  "name": "Google Books Search and Wish List",
 
   "start_url": ".",
   "display": "standalone",

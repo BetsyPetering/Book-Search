@@ -6,7 +6,7 @@ module.exports = {
   findAll: function (req, res) {
     axios({
       method: 'get',
-      url: `https://www.googleapis.com/books/v1/volumes?q=:flowers+inauthorkeyes&key=${process.env.googleBooksKey}`,
+      url: `https://www.googleapis.com/books/v1/volumes?${req.params}&key=${process.env.googleBooksKey}`,
     })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
