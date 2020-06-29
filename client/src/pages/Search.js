@@ -3,28 +3,26 @@ import Jumbotron from '../components/Jumbotron';
 import API from '../utils/API';
 import { Col, Row, Container } from '../components/Grid';
 import { Input, TextArea, FormBtn } from '../components/Form';
+import {} from '../components/Result';
 
 function Search() {
   // Setting our component's initial state
   const [found, setBooks] = useState([]);
-  const [formObject, setFormObject] = useState({});
   const [parameter, setParameter] = useState({});
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    handleFormSubmit();
+    handleSearchRequest();
   }, []);
 
   // Loads all books and sets them to books
-  function handleFormSubmit() {
-    console.log("I'm in the handleFormSubmit, Search.js");
-    console.log(parameter);
+  function handleSearchRequest() {
     API.getBooks(parameter)
       .then((res) => setBooks(res.data))
       .catch((err) => console.log(err));
   }
 
-  function handleInputChange(event) {
+  function handleSearchData(event) {
     setParameter(event.target.value);
   }
 
@@ -39,11 +37,11 @@ function Search() {
           </Jumbotron>
           <form>
             <Input
-              onChange={handleInputChange}
+              onChange={handleSearchData}
               name='searchOn'
               placeholder='Search for:'
             />
-            <FormBtn onClick={handleFormSubmit}>Run Search</FormBtn>
+            <FormBtn onClick={handleSearchRequest}>Run Search</FormBtn>
           </form>
         </Col>
       </Row>
@@ -56,63 +54,15 @@ function Search() {
       <Row>
         <Col size='md-1'></Col>
         <Col size='md-2'>
-          <form>
-            <Input
-              onChange={() => {}}
-              name='title'
-              placeholder='Title (required)'
-            />
-            <Input
-              onChange={() => {}}
-              name='author'
-              placeholder='Author (required)'
-            />
-            <TextArea
-              onChange={() => {}}
-              name='synopsis'
-              placeholder='Synopsis (Optional)'
-            />
-          </form>
+          <form></form>
         </Col>
         <Col size='md-1'></Col>
         <Col size='md-2'>
-          <form>
-            <Input
-              onChange={() => {}}
-              name='title'
-              placeholder='Title (required)'
-            />
-            <Input
-              onChange={() => {}}
-              name='author'
-              placeholder='Author (required)'
-            />
-            <TextArea
-              onChange={() => {}}
-              name='synopsis'
-              placeholder='Synopsis (Optional)'
-            />
-          </form>
+          <form></form>
         </Col>
         <Col size='md-1'></Col>
         <Col size='md-2'>
-          <form>
-            <Input
-              onChange={() => {}}
-              name='title'
-              placeholder='Title (required)'
-            />
-            <Input
-              onChange={() => {}}
-              name='author'
-              placeholder='Author (required)'
-            />
-            <TextArea
-              onChange={() => {}}
-              name='synopsis'
-              placeholder='Synopsis (Optional)'
-            />
-          </form>
+          <form></form>
         </Col>
       </Row>
     </Container>

@@ -4,7 +4,7 @@ export default {
   // Gets all books
   getBooks: function (input) {
     console.log('inside API.js');
-    return axios.get('/api/books', { params: { q: 'title:' + input } });
+    return axios.get('/api/books/', { params: { q: 'title:' + input } });
   },
   // Gets the book with the given id
   getWishList: function () {
@@ -16,6 +16,6 @@ export default {
   },
   // Saves a book to the WishList database
   saveBook: function (bookStats) {
-    return axios.post('/api/books', bookStats);
+    return axios.post('/api/books/', bookStats);
   },
 };
